@@ -8,7 +8,7 @@ LAYERS="natural waterway highway railway landuse place boundary"
 
 for LAYER in $LAYERS; do
     echo Extracting $LAYER ...
-    osmfilter "tiles/$INPUT" --keep= --keep-ways="$LAYER=" --keep-relations="$LAYER=" -o=tmp/$LAYER.osm
+    osmfilter "tiles/$INPUT" --keep= --keep-nodes="$LAYER=" --keep-ways="$LAYER=" --keep-relations="$LAYER=" -o=tmp/$LAYER.osm
     echo Converting $LAYER to Shapefile ...
     rm -rf shapefiles/$LAYER
     ogr2ogr --config OSM_CONFIG_FILE config/osmconf.ini -skipfailures -f 'ESRI Shapefile' shapefiles/$LAYER tmp/$LAYER.osm

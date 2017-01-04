@@ -4,7 +4,7 @@
 ########################################################################
 
 INPUT=w080n40.o5m
-LAYERS="natural waterway highway railway landuse place boundary"
+LAYERS="natural waterway highway railway landuse place boundary power"
 
 for LAYER in $LAYERS; do
     echo Extracting $LAYER ...
